@@ -1,0 +1,40 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:product.template,direct_stock_supply:"
+msgid "Direct Stock Supply"
+msgstr "Abastecimiento directo por movimiento de albarán"
+
+msgctxt "field:stock.move,purchase_request:"
+msgid "Purchase Request"
+msgstr "Solicitud de compra"
+
+msgctxt "field:stock.move,purchase_request_state:"
+msgid "Purchase Request State"
+msgstr "Estado de la solicitud de compra"
+
+msgctxt "help:product.template,direct_stock_supply:"
+msgid ""
+"Generates a purchase request for each stock line of this product regardless "
+"of the stock levels, when out/internal shipments are assigned."
+msgstr ""
+"Genera una solicitud de compra por cada movimiento de este producto "
+"independientemente del nivel del estoc, cuando se asignan los envíos de "
+"salida/internos."
+
+msgctxt "selection:stock.move,purchase_request_state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:stock.move,purchase_request_state:"
+msgid "Cancel"
+msgstr "Cancelado"
+
+msgctxt "selection:stock.move,purchase_request_state:"
+msgid "Purchased"
+msgstr "Comprado"
+
+msgctxt "selection:stock.move,purchase_request_state:"
+msgid "Requested"
+msgstr "Solicitado"

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/notebook/page[@id='suppliers']/field[@name='product_suppliers']"
+            position="before">
+        <label name="direct_stock_supply"/>
+        <field name="direct_stock_supply"/>
+        <newline/>
+    </xpath>
+</data>
