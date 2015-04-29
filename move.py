@@ -62,7 +62,7 @@ class Move:
 
         product = self.product
         supplier, purchase_date = Request.find_best_supplier(product,
-            self.planned_date)
+            self.planned_date or self.effective_date)
         uom = product.purchase_uom or product.default_uom
         quantity = Uom.compute_qty(self.uom, self.quantity, uom)
         with Transaction().set_context(_check_access=False):
