@@ -65,24 +65,34 @@ class Move:
             self.planned_date or self.effective_date)
         uom = product.purchase_uom or product.default_uom
         quantity = Uom.compute_qty(self.uom, self.quantity, uom)
-        with Transaction().set_context(_check_access=False):
-            if (self.purchase_request and
-                    self.purchase_request.state == 'draft'):
-                request = self.purchase_request
-            else:
-                request = Request()
-            request.product = product
-            request.party = supplier
-            request.quantity = quantity
-            request.uom = uom
-            request.computed_quantity = quantity
-            request.computed_uom = uom
-            request.purchase_date = purchase_date
-            request.supply_date = self.planned_date
-            request.company = self.company
+        requests = Request.search([
+                ('product', '=', product.id),
+                ('party', '=', supplier and supplier.id),
+                ('quantity', '=', quantity),
+                ('uom', '=', uom.id),
+                ])
+        if requests:
+            request, = requests
             request.origin = self
-            request.warehouse = (self.from_location.warehouse or
-                self.to_location.warehouse)
+        else:
+            with Transaction().set_context(_check_access=False):
+                if (self.purchase_request and
+                        self.purchase_request.state == 'draft'):
+                    request = self.purchase_request
+                else:
+                    request = Request()
+                request.product = product
+                request.party = supplier
+                request.quantity = quantity
+                request.uom = uom
+                request.computed_quantity = quantity
+                request.computed_uom = uom
+                request.purchase_date = purchase_date
+                request.supply_date = self.planned_date
+                request.company = self.company
+                request.origin = self
+                request.warehouse = (self.from_location.warehouse or
+                    self.to_location.warehouse)
 
         return request
 
