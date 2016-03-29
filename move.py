@@ -7,10 +7,10 @@ from trytond.transaction import Transaction
 
 
 __all__ = ['Move']
-__metaclass__ = PoolMeta
 
 
 class Move:
+    __metaclass__ = PoolMeta
     __name__ = 'stock.move'
 
     purchase_request = fields.Many2One('purchase.request', 'Purchase Request',

@@ -6,10 +6,10 @@ from trytond.pyson import Eval, Equal, Not
 
 
 __all__ = ['Template']
-__metaclass__ = PoolMeta
 
 
 class Template:
+    __metaclass__ = PoolMeta
     __name__ = 'product.template'
 
     direct_stock_supply = fields.Boolean('Direct Stock Supply',
